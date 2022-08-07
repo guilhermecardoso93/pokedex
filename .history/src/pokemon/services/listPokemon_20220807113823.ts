@@ -19,10 +19,8 @@ export async function listPokemon(): Promise<listPokemonInterface> {
 
   const response = await axios.get<listPokemonInterface>(endpoint);
 
-  const promiseAr = response.data.results.map(({ name }) =>
-    getPokemonDetails(name)
-  );
-  const resultsPromise = await Promise.all(promiseAr);
+ const promiseAr = response.data.results.map(({ name }) => getPokemonDetails(name) )
+ const resultsPromise = await Promise.all(promiseAr)
 
-  return { ...response.data, results: resultsPromise };
+  return { ...response.data, results: resultsPromise};
 }

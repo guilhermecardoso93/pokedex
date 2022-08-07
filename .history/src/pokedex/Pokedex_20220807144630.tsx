@@ -7,10 +7,12 @@ import { listPokemon } from "../pokemon/services/listPokemon";
 import { PokedexCard } from "./components/PokedexCard";
 import { useQuery } from "react-query";
 
+export const axios = require("axios");
+
 interface PokedexProps {}
 
 export const Pokedex: React.FC<PokedexProps> = () => {
-  const { data, isLoading, isRefetching } = useQuery(`pokemon`, listPokemon);
+  const { data, isLoading } = useQuery(`pokemon`, listPokemon);
 
   return (
     <>

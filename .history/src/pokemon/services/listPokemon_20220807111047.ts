@@ -15,14 +15,11 @@ export interface listPokemonInterface {
 }
 
 export async function listPokemon(): Promise<listPokemonInterface> {
-  const endpoint = `${process.env.REACT_APP_POKEAPI}/pokemon?limit=204`;
+  const endpoint = `${process.env.REACT_APP_POKEAPI}/pokemon`;
 
   const response = await axios.get<listPokemonInterface>(endpoint);
 
-  const promiseAr = response.data.results.map(({ name }) =>
-    getPokemonDetails(name)
-  );
-  const resultsPromise = await Promise.all(promiseAr);
+ const promiseAr = await response.data.results.map(({ name }) => getPokemonDetails(name) )
 
-  return { ...response.data, results: resultsPromise };
+  return response.data;
 }
