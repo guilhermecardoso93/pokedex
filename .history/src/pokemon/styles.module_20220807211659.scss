@@ -1,0 +1,13 @@
+.PokemonCard {
+	position: 'relative';
+	display: flex;
+	flex-direction: column;
+	border-radius: '1rem';
+	min-width: 320;
+}
+
+.PokemonName {
+	text-transform: uppercase;
+	font-weight: bold;
+}
+

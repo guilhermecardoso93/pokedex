@@ -1,0 +1,45 @@
+.PokemonCard {
+	position: 'relative';
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	border-radius: '1rem';
+	min-width: 320;
+
+	margin-top: 2rem;
+	padding: 1rem;
+	background-color: rgb(21, 138, 21);
+}
+
+.PokemonName {
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 2rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	color: white;
+	border-radius: 8px
+}
+
+.PokemonId {
+	text-transform: uppercase;
+	font-weight: normal;
+	font-size: 1.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	color: white;
+	border-radius: 8px
+}
+
+.PokemonImgBox {
+	width: 80%;
+}
+
+.PokemonImg {
+	padding: 0;
+	margin: 0;
+}

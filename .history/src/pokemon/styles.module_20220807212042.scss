@@ -1,0 +1,29 @@
+.PokemonCard {
+	position: 'relative';
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	border-radius: '1rem';
+	min-width: 320;
+
+	margin-top: 2rem;
+}
+
+.PokemonName {
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 2rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	color: white;
+	background-color: green;
+	border-radius: 8px
+}
+
+.PokemonImg{
+	padding: 0;
+	margin: 0;
+	height:auto
+}

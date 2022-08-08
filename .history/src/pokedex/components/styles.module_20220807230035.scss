@@ -1,0 +1,35 @@
+.Wave {
+	background-image: url('../../assets/wave.svg');
+	background-repeat: no-repeat;
+	background-position: bottom;
+}
+
+.PokemonCard {
+	background-color: rgb(57, 154, 57);
+	width: auto;
+}
+
+.PokemonImg {
+	display: flex;
+	position: relative;
+	justify-content: center;
+	margin-bottom: -0.5rem;
+}
+
+.PokemonName {
+	text-transform: uppercase;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: rgb(7, 7, 7);
+}
+
+
+.PokemonType {
+	border: none;
+	border-radius: 8px;
+	font-size: 1rem;
+	background-color: aquamarine;
+	padding: 0 0.2rem
+}

@@ -1,0 +1,32 @@
+.PokemonCard {
+	background-color: rgb(57, 154, 57);
+}
+
+.PokemonName {
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 2rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	color: white;
+	border-radius: 8px
+}
+
+
+.PokemonInfosBox {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+
+.PokemonType {
+	border: none;
+	border-radius: 8px;
+	background-color: aquamarine;
+	font-size: 1rem;
+	padding: 0 0.2rem
+}
