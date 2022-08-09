@@ -25,7 +25,7 @@ export function PokemonDetails() {
   );
   const pokemonSelectedDetails = data;
   const pokemonType = pokemonSelectedDetails?.types;
-
+  const pokemonHeight = Number(pokemonSelectedDetails?.height) / 10;
 
   return (
     <>
@@ -83,7 +83,7 @@ export function PokemonDetails() {
                 Altura:
               </Typography>
               <Typography>
-                {Number(pokemonSelectedDetails?.height) /10}
+                {pokemonHeight}
               </Typography>
             </Box>
             <Box display="flex" flexDirection="row" gap={0.6}>
@@ -99,7 +99,10 @@ export function PokemonDetails() {
                 Abilidades:
               </Typography>
               {pokemonSelectedDetails?.abilities.map((ability) => (
-                <Typography className={styles.PokemonType}>
+                <Typography className={styles.PokemonType} style={{
+                  backgroundColor: setTypeColor(ability.ability.name),
+                  color: setTypeColorText(ability.ability.name),
+                }}>
                   {ability.ability.name}
                 </Typography>
               ))}

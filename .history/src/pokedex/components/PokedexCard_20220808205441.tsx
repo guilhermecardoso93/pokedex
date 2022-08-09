@@ -1,12 +1,17 @@
-import { Box, Card, CardMedia, Chip, Typography } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardHeader,
+  CardMedia,
+  Chip,
+  Typography,
+} from "@mui/material";
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { PokemonDetail } from "../../pokemon/types/PokemonDetails";
 import Wave from "../../assets/wave.svg";
 
 import styles from "./styles.module.scss";
-import { setTypeColor } from "../../services/getColorsBack";
-import { setTypeColorText } from "../../services/getColorsText";
 
 interface PokedexCardProps {
   pokemon: PokemonDetail;
@@ -57,10 +62,7 @@ export const PokedexCard: React.FC<PokedexCardProps> = ({ pokemon }) => {
               label={type.type.name}
               variant="outlined"
               className={styles.PokemonType}
-              style={{
-                backgroundColor: setTypeColor(type.type.name),
-                color: setTypeColorText(type.type.name),
-              }}
+              style={{ backgroundColor: setTypeColor(type.type.name) }}
             />
           ))}
         </Box>

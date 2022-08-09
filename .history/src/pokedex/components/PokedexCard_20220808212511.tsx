@@ -1,4 +1,10 @@
-import { Box, Card, CardMedia, Chip, Typography } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardMedia,
+  Chip,
+  Typography,
+} from "@mui/material";
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { PokemonDetail } from "../../pokemon/types/PokemonDetails";
@@ -40,6 +46,10 @@ export const PokedexCard: React.FC<PokedexCardProps> = ({ pokemon }) => {
         flexDirection="column"
         padding={1}
         bgcolor="#f3f4f5"
+        style={{
+          backgroundColor: setTypeColor(type.type.name),
+          color: setTypeColorText(type.type.name),
+        }}
       >
         <Typography className={styles.PokemonName}>
           {pokemon.name}

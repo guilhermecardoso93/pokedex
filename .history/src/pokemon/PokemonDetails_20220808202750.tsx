@@ -2,8 +2,8 @@ import { Box, Card, Container, Typography } from "@mui/material";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import { AppBarMenu } from "../components/AppBarMenu";
-import { setTypeColor } from "../services/getColorsBack";
-import { setTypeColorText } from "../services/getColorsText";
+import { PokemonTypeColors } from "../global.styles";
+import { getBackgroundColors } from "../services/getColors";
 import { getPokemonDetails } from "./services/getPokemonDetails";
 
 import styles from "./styles.module.scss";
@@ -25,7 +25,20 @@ export function PokemonDetails() {
   );
   const pokemonSelectedDetails = data;
   const pokemonType = pokemonSelectedDetails?.types;
+  const pokemonHeight = Number(pokemonSelectedDetails?.height) / 10;
+  //const backgroundColors = pokemonSelectedDetails?.types.map((type) => ({type.type.name} ))
 
+  const getBackgroundColors = (
+    type: Type[],
+  ): { light: string; medium: string }[] => {
+    return type.map(({ type }) => {
+      const [[, backgroundColor]] = Object.entries(PokemonTypeColors).filter(
+        ([key, _]) => key === type.name,
+      );
+
+      return backgroundColor;
+    });
+  };
 
   return (
     <>
@@ -48,7 +61,7 @@ export function PokemonDetails() {
           </Box>
           <Box display="flex" flexDirection="row" gap={2}>
             {pokemonSelectedDetails?.types.map((type) => (
-              <Typography className={styles.PokemonType} style={{ backgroundColor: setTypeColor(type.type.name) }}>
+              <Typography className={styles.PokemonType}>
                 {type.type.name}
               </Typography>
             ))}
@@ -83,7 +96,7 @@ export function PokemonDetails() {
                 Altura:
               </Typography>
               <Typography>
-                {Number(pokemonSelectedDetails?.height) /10}
+                {pokemonHeight}
               </Typography>
             </Box>
             <Box display="flex" flexDirection="row" gap={0.6}>

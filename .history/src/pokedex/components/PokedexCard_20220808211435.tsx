@@ -1,4 +1,11 @@
-import { Box, Card, CardMedia, Chip, Typography } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardHeader,
+  CardMedia,
+  Chip,
+  Typography,
+} from "@mui/material";
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { PokemonDetail } from "../../pokemon/types/PokemonDetails";
@@ -26,12 +33,15 @@ export const PokedexCard: React.FC<PokedexCardProps> = ({ pokemon }) => {
       className={styles.PokemonCard}
     >
       <Box className={styles.Wave}>
+
+        
         <CardMedia
           component="img"
           height="80%"
           width="auto"
           image={pokemon?.sprites.other.home.front_default}
           className={styles.PokemonImg}
+          style={{ backgroundColor: setTypeColor(type.type.name), color:setTypeColorText(type.type.name) }}
         />
       </Box>
 
@@ -57,10 +67,7 @@ export const PokedexCard: React.FC<PokedexCardProps> = ({ pokemon }) => {
               label={type.type.name}
               variant="outlined"
               className={styles.PokemonType}
-              style={{
-                backgroundColor: setTypeColor(type.type.name),
-                color: setTypeColorText(type.type.name),
-              }}
+              style={{ backgroundColor: setTypeColor(type.type.name), color:setTypeColorText(type.type.name) }}
             />
           ))}
         </Box>

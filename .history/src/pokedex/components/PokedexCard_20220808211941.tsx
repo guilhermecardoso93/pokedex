@@ -1,4 +1,11 @@
-import { Box, Card, CardMedia, Chip, Typography } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardHeader,
+  CardMedia,
+  Chip,
+  Typography,
+} from "@mui/material";
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { PokemonDetail } from "../../pokemon/types/PokemonDetails";

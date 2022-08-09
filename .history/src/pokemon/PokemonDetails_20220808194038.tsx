@@ -2,12 +2,9 @@ import { Box, Card, Container, Typography } from "@mui/material";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import { AppBarMenu } from "../components/AppBarMenu";
-import { setTypeColor } from "../services/getColorsBack";
-import { setTypeColorText } from "../services/getColorsText";
 import { getPokemonDetails } from "./services/getPokemonDetails";
 
 import styles from "./styles.module.scss";
-import { Type } from "./types/PokemonDetails";
 
 interface PokemonDetailsInterface {
 }
@@ -25,7 +22,7 @@ export function PokemonDetails() {
   );
   const pokemonSelectedDetails = data;
   const pokemonType = pokemonSelectedDetails?.types;
-
+  const pokemonWeight = Number(pokemonSelectedDetails?.height) / 10;
 
   return (
     <>
@@ -48,7 +45,7 @@ export function PokemonDetails() {
           </Box>
           <Box display="flex" flexDirection="row" gap={2}>
             {pokemonSelectedDetails?.types.map((type) => (
-              <Typography className={styles.PokemonType} style={{ backgroundColor: setTypeColor(type.type.name) }}>
+              <Typography className={styles.PokemonType}>
                 {type.type.name}
               </Typography>
             ))}
@@ -65,43 +62,27 @@ export function PokemonDetails() {
               className={styles.PokemonImg}
             />
           </Box>
-          <Box
-            display="flex"
-            flexDirection="column"
-            className={styles.PokemonInfos}
-          >
+          <Box display="flex" flexDirection="column" className={styles.PokemonInfos}>
             <Box display="flex" flexDirection="row" gap={0.6}>
-              <Typography variant="subtitle1" color="GrayText">
-                Especie:
-              </Typography>
-              <Typography textTransform="uppercase">
-                {pokemonSelectedDetails?.species.name}
-              </Typography>
+              <Typography variant="subtitle1" color='GrayText' >Especie:</Typography>
+              <Typography textTransform="uppercase">{pokemonSelectedDetails?.species.name}</Typography>
             </Box>
-            <Box display="flex" flexDirection="row" gap={0.6}>
-              <Typography variant="subtitle1" color="GrayText">
-                Altura:
-              </Typography>
+            <Box display="flex" flexDirection="row" gap={0.6} >
+              <Typography variant="subtitle1" color='GrayText'>Altura:</Typography>
               <Typography>
-                {Number(pokemonSelectedDetails?.height) /10}
+                {Number(pokemonSelectedDetails?.height) / 10}cm
               </Typography>
             </Box>
             <Box display="flex" flexDirection="row" gap={0.6}>
-              <Typography variant="subtitle1" color="GrayText">
-                Peso:
-              </Typography>
+              <Typography variant="subtitle1" color='GrayText'>Peso:</Typography>
               <Typography>
                 {Number(pokemonSelectedDetails?.weight) / 10}kg
               </Typography>
             </Box>
             <Box display="flex" flexDirection="row" gap={0.6}>
-              <Typography variant="subtitle1" color="GrayText">
-                Abilidades:
-              </Typography>
+              <Typography variant="subtitle1" color='GrayText'>Abilidades:</Typography>
               {pokemonSelectedDetails?.abilities.map((ability) => (
-                <Typography className={styles.PokemonType}>
-                  {ability.ability.name}
-                </Typography>
+                <Typography className={styles.PokemonType}>{ability.ability.name}</Typography>
               ))}
             </Box>
           </Box>
