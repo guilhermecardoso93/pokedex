@@ -1,0 +1,71 @@
+.PokemonCard {
+	position: 'relative';
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	border-radius: '1rem';
+	min-width: 320;
+
+	margin: 2rem 0;
+	padding: 1rem;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.Wave {
+	background-image: url('../../../assets/wave.svg');
+	background-repeat: no-repeat;
+	background-position: bottom;
+}
+
+
+.PokemonName {
+	text-transform: uppercase;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: rgb(7, 7, 7);
+}
+
+.PokemonId {
+	text-transform: uppercase;
+	font-weight: normal;
+	font-size: 1.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	color: rgb(7, 7, 7);
+	border-radius: 8px
+}
+
+.PokemonImgBox {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: -4rem;
+	margin-bottom: 2rem;
+}
+
+
+.PokemonType {
+	border: none;
+	border-radius: 8px;
+	font-size: 1rem;
+	padding: 0 0.2rem;
+
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+}
+
+.PokemonInfos {
+	display: flex;
+	flex-direction: column;
+	align-items: left;
+	justify-content: left;
+	background-color: rgb(237, 254, 244);
+	border-radius: 8px;
+	padding: 0.5rem;
+
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
