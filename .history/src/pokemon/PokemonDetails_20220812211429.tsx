@@ -1,5 +1,4 @@
-import { Favorite } from "@mui/icons-material";
-import { Box, Card, CardActions, Container, IconButton, Typography } from "@mui/material";
+import { Box, Card, Container, Typography } from "@mui/material";
 import { useContext } from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
@@ -20,28 +19,14 @@ interface PokemonQueryPharms {
 }
 
 export function PokemonDetails() {
-  const { favorites, setFavorites } = useContext(FavoriteContext);
+  const { favorites } = useContext(FavoriteContext);
   const { name } = useParams<PokemonQueryPharms>();
   const { data } = useQuery(
     `getPokemonDetails-${name}`,
     () => getPokemonDetails(name),
   );
   const pokemonSelectedDetails = data;
-
-  const addPokemonToFavorite = () => {
-    if(!pokemonSelectedDetails) { return }
-    setFavorites([...favorites, pokemonSelectedDetails]);
-  };
-
-  const removePokemonFromFavorite = () => {
-    if(!pokemonSelectedDetails) { return }
-    setFavorites(favorites.filter((pokefave) => pokefave.name !== pokemonSelectedDetails.name));
-  };
-
-  const isFavorite = favorites.some((pokefave) => pokefave.name === pokemonSelectedDetails?.name)
-
-
-  /* const pokemonColorBack: string[] = pokemonSelectedDetails?.types.map((
+ /* const pokemonColorBack: string[] = pokemonSelectedDetails?.types.map((
     type,
   ) => (type.type.name));*/
 
@@ -53,24 +38,11 @@ export function PokemonDetails() {
           <Box
             className={styles.PokemonImgBox}
             mt={2}
+            key={pokemonSelectedDetails?.id}
             /*style={{
               backgroundColor: setTypeColor(pokemonColorBack[0]),
             }}*/
           >
-            <Box display="flex" position="relative" zIndex={"1"}>
-              <CardActions>
-                <IconButton
-                  aria-label="add to favorites"
-                  color={isFavorite ? "error" : "warning"}
-                  onClick={() =>
-                    isFavorite
-                      ? removePokemonFromFavorite()
-                      : addPokemonToFavorite()}
-                >
-                  <Favorite color={isFavorite ? "error" : "disabled"} />
-                </IconButton>
-              </CardActions>
-            </Box>
             <Box display="flex" justifyContent="center" gap={4}>
               <Typography className={styles.PokemonName} variant="h5">
                 {pokemonSelectedDetails?.name}
@@ -98,7 +70,7 @@ export function PokemonDetails() {
               justifyContent="space-around"
             >
               <Box display="flex" flexDirection="row" gap={2}>
-                {pokemonSelectedDetails?.types.map((type) => (
+                {pokemonSelectedDetails?.types.map((type: { type: { name: {} | null | undefined; }; }) => (
                   <Typography
                     className={styles.PokemonType}
                     style={{ backgroundColor: setTypeColor(type.type.name) }}
@@ -112,7 +84,7 @@ export function PokemonDetails() {
                   Altura:
                 </Typography>
                 <Typography>
-                  {(Number(pokemonSelectedDetails?.height) / 10).toFixed(2)}
+                  {(Number(pokemonSelectedDetails?.height) / 10).toFixed(2) }
                 </Typography>
               </Box>
               <Box display="flex" flexDirection="row" gap={0.6}>

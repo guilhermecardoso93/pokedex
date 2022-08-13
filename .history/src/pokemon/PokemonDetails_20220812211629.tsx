@@ -1,5 +1,4 @@
-import { Favorite } from "@mui/icons-material";
-import { Box, Card, CardActions, Container, IconButton, Typography } from "@mui/material";
+import { Box, Card, Container, Typography } from "@mui/material";
 import { useContext } from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
@@ -20,27 +19,13 @@ interface PokemonQueryPharms {
 }
 
 export function PokemonDetails() {
-  const { favorites, setFavorites } = useContext(FavoriteContext);
+  const { favorites } = useContext(FavoriteContext);
   const { name } = useParams<PokemonQueryPharms>();
   const { data } = useQuery(
     `getPokemonDetails-${name}`,
     () => getPokemonDetails(name),
   );
   const pokemonSelectedDetails = data;
-
-  const addPokemonToFavorite = () => {
-    if(!pokemonSelectedDetails) { return }
-    setFavorites([...favorites, pokemonSelectedDetails]);
-  };
-
-  const removePokemonFromFavorite = () => {
-    if(!pokemonSelectedDetails) { return }
-    setFavorites(favorites.filter((pokefave) => pokefave.name !== pokemonSelectedDetails.name));
-  };
-
-  const isFavorite = favorites.some((pokefave) => pokefave.name === pokemonSelectedDetails?.name)
-
-
   /* const pokemonColorBack: string[] = pokemonSelectedDetails?.types.map((
     type,
   ) => (type.type.name));*/
