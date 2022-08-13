@@ -1,0 +1,21 @@
+.ToolbarProps {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: 'Fredoka One', cursive;
+
+  padding: 0.5rem;
+  margin: 2rem;
+  border-radius: 8px;
+  border: 3px double whitesmoke;
+
+  >.ToolbarBoxProps {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+  }
+}
+
+.ToolbarBoxImgProps {
+  max-width: 4rem;
+}

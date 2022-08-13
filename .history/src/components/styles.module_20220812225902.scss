@@ -1,0 +1,17 @@
+
+.ToolbarProps{
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  > .ToolbarBoxProps {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+
+    > .ToolbarBoxImgProps {
+      max-width: fit-content;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+body,
+input,
+textarea,
+button {
+  font-family: "Roboto", sans-serif;
+
+
+  cursor: pointed;
+}
+
+body {
+  background-color: aliceblue;
+  background-image: url('./assets/pokemonbackground.jpg');
+  background-size: 40%;
+  background-attachment: fixed;
+}
+
+.Principal {
+  border: none;
+  border-radius: 8px;
+  background-color: aliceblue;
+
+  padding: 1rem;
+}

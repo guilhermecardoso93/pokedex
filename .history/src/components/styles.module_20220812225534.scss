@@ -1,0 +1,12 @@
+
+.ToolbarProps{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  > .ToolbarBoxProps {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+  }
+}

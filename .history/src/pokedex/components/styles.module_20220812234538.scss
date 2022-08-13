@@ -1,0 +1,116 @@
+.PokemonCard {
+	position: relative;
+	width: auto;
+	height: auto;
+	box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+	transition: all 0.5s;
+}
+
+.PokemonCard:hover {
+	-webkit-transform: scale(1.5);
+	transform: scale(1.5);
+	z-index: 2;
+	border: 2px double whitesmoke;
+	position: absolute;
+	z-index: -2;
+	left: -50%;
+	top: -50%;
+	width: 200%;
+	height: 200%;
+	background-color: #399953;
+	background-repeat: no-repeat;
+	background-size: 50% 50%,
+		50% 50%;
+	background-position: 0 0,
+		100% 0,
+		100% 100%,
+		0 100%;
+	background-image: linear-gradient(#399953, #399953),
+		linear-gradient(#fbb300, #fbb300),
+		linear-gradient(#d53e33, #d53e33),
+		linear-gradient(#377af5, #377af5);
+	animation: rotate 4s linear infinite;
+
+	&::after {
+		content: '';
+		position: absolute;
+		z-index: -1;
+		left: 6px;
+		top: 6px;
+		width: calc(100% - 12px);
+		height: calc(100% - 12px);
+		background: white;
+		border-radius: 5px;
+		animation: opacityChange 3s infinite alternate;
+	}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.Wave {
+	background-image: url('../../assets/backCard.svg');
+	background-repeat: no-repeat;
+	background-position: bottom;
+}
+
+.PokemonImg {
+	display: flex;
+	position: relative;
+	margin-top: -2rem;
+	justify-content: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+
+.PokemonName {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: auto;
+	text-transform: uppercase;
+	font-size: 1rem;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: rgb(7, 7, 7);
+}
+
+
+.PokemonType {
+	border: none;
+	border-radius: 8px;
+	font-size: 1rem;
+	padding: 0 0.2rem;
+
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
