@@ -1,0 +1,93 @@
+.Container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.PokemonCard {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	border-radius: 8px;
+	max-width: 40rem;
+	max-height: 45rem;
+
+	margin-top: 10rem;
+	padding: 1rem;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.PokeInfo {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	border-radius: 8px;
+	width: 100rem;
+	max-width: 40rem;
+	max-height: 45rem;
+
+	margin-top: 10rem;
+	padding: 1rem;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.PokemonImgBox {
+	background-image: url('../assets/backCard.svg');
+	background-color: rgb(226, 226, 226);
+	background-repeat: no-repeat;
+	border-radius: 8px;
+	padding: 0.5rem;
+	margin-bottom: 0.5rem;
+	height: 100vh;
+
+}
+
+.PokemonName {
+	text-transform: uppercase;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: rgb(7, 7, 7);
+}
+
+.PokemonId {
+	text-transform: uppercase;
+	font-weight: normal;
+	font-size: 1.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	color: rgb(7, 7, 7);
+	border-radius: 8px
+}
+
+.PokemonImg {
+	display: flex;
+	position: relative;
+	flex-direction: column;
+	align-items: center;
+	margin-top: -4rem;
+	margin-bottom: 2rem;
+}
+
+
+.PokemonType {
+	border: none;
+	border-radius: 8px;
+	font-size: 1rem;
+	padding: 0 0.3rem;
+
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+}
+
+.PokemonInfos {
+	background-color: rgb(237, 254, 244);
+	border-radius: 8px;
+	padding: 0.5rem;
+	gap: 1rem;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}

@@ -1,61 +1,33 @@
 import { Box, Card, Container, Typography } from "@mui/material";
-import { useContext } from "react";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
-import { AppBarMenu } from "../../components/AppBarMenu";
-import { FavoriteContext } from "../../favorites/contexts/FavoriteContext";
-import { getPokemonEv } from "../../pokemon/services/getPokemonEnv";
-import { setTypeColor } from "../../services/getColorsBack";
-
+import { setTypeColor } from "../services/getColorsBack";
+import { getPokemonDetails } from "./services/getPokemonDetails";
+import { getPokemonEnvDetails } from "./services/getPokemonEnv";
+import axios from "axios";
 
 import styles from "./styles.module.scss";
+import { PokemonDetail } from "./types/PokemonDetails";
 
-interface PokemonDetailsInterface {
+interface PokemonQueryPharms {
+  name: string;
+  id?: number | any;
 }
 
-interface PokemonQueryPharmsId {
-  id: string;
-}
+export function PokemonMoreInfos() {
+  const { name, id } = useParams<PokemonQueryPharms>();
+  const { data } = useQuery(`getPokemonDetails-${name}`,() => getPokemonDetails(name));
+  const envChain = useQuery(`getPokemonEnvDetails-${data?.id}`, () => getPokemonEnvDetails(id))
 
-export function PokemonEvoDetails() {
-  const { favorites } = useContext(FavoriteContext);
-  const { id } = useParams<PokemonQueryPharmsId>();
-  const { data } = useQuery(
-    `getPokemonEv'/${id}`,
-    () => getPokemonEv(Number(id)),
-  );
-  const pokemonSelectedDetails = data;
-  const pokeEnv = data?.evolution.map((env) => (
-    env.trigger.name
-  ))
+  const pokemonSelectedDetails = data
 
-  console.log(pokeEnv)
+  const env = `${process.env.REACT_APP_POKEAPI}/evolution-chain/${data?.id}/`;
+  console.log(envChain)
 
   return (
     <>
-      <AppBarMenu />
       <Container maxWidth="lg">
-        <Card className={styles.PokemonCard} key={pokemonSelectedDetails?.id}>
-          <Box
-            className={styles.PokemonImgBox}
-            mt={2}
-            key={pokemonSelectedDetails?.id}
-          >
-            <Box display="flex" justifyContent="center" gap={4}>
-              <Typography className={styles.PokemonName} variant="h5">
-                {pokemonSelectedDetails?.name}
-              </Typography>
-              <Typography className={styles.PokemonId} variant="h6">
-                {`#${pokemonSelectedDetails?.id}`}
-              </Typography>
-            </Box>
-            <img
-              width="100%"
-              height="100%"
-              src={pokemonSelectedDetails?.sprites.other.home.front_default}
-              className={styles.PokemonImg}
-            />
-          </Box>
+        <Card className={styles.PokeInfo} key={pokemonSelectedDetails?.id}>
           <Box
             display="flex"
             flexDirection="column"
@@ -63,11 +35,14 @@ export function PokemonEvoDetails() {
           >
             <Box
               display="flex"
-              flexDirection="row"
+              flexDirection="column"
               gap={0.6}
               justifyContent="space-around"
             >
               <Box display="flex" flexDirection="row" gap={2}>
+                <Typography variant="subtitle1" color="GrayText">
+                  Tipo:
+                </Typography>
                 {pokemonSelectedDetails?.types.map((type) => (
                   <Typography
                     className={styles.PokemonType}
@@ -82,7 +57,7 @@ export function PokemonEvoDetails() {
                   Altura:
                 </Typography>
                 <Typography>
-                  {Number(pokemonSelectedDetails?.height) / 10}
+                  {(Number(pokemonSelectedDetails?.height) / 10).toFixed(2)}
                 </Typography>
               </Box>
               <Box display="flex" flexDirection="row" gap={0.6}>
@@ -90,7 +65,7 @@ export function PokemonEvoDetails() {
                   Peso:
                 </Typography>
                 <Typography>
-                  {Number(pokemonSelectedDetails?.weight) / 10}kg
+                  {(Number(pokemonSelectedDetails?.weight) / 10).toFixed(2)}kg
                 </Typography>
               </Box>
             </Box>
@@ -106,6 +81,18 @@ export function PokemonEvoDetails() {
                   }}
                 >
                   {ability.ability.name}
+                </Typography>
+              ))}
+            </Box>
+            <Box display="flex" flexDirection="column" gap={0.6}>
+              <Typography variant="subtitle1" color="GrayText">
+                Abilidades:
+              </Typography>
+              {pokemonSelectedDetails?.moves.map((move) => (
+                <Typography
+                  className={styles.PokemonType}
+                >
+                  {move.move.name}
                 </Typography>
               ))}
             </Box>
