@@ -2,7 +2,7 @@
 
 * Projeto simples de um pokedex com base nos videos do canal <a href='https://www.youtube.com/channel/UCeh1dIqBouGhlo1SwtnXpOw' targer='_blank'>PenseApp</a>
 * Usando MUI
-* Pokemom API (<img src='https://cdn-icons-png.flaticon.com/128/189/189001.png' width="50" height="50"/>)
+* Pokemom API <img src='https://cdn-icons-png.flaticon.com/128/189/189001.png' width="20" height="20"/>
 
 ![01](https://user-images.githubusercontent.com/79944203/184555542-3f07e04a-745d-473e-9d0e-94f907f628f0.png)
 ![03](https://user-images.githubusercontent.com/79944203/184555551-6563b965-e68a-450d-a79e-b9e7d0140b14.png)
