@@ -1,5 +1,7 @@
 # Projeto Pokedex com ReactJS <img src='https://cdn-icons-png.flaticon.com/128/189/189001.png' width="20" height="20"/>
 
+- link do Projeto - https://projeto-pokedex-reactjs.web.app/
+
 * Projeto simples de um pokedex com base nos videos do canal <a href='https://www.youtube.com/channel/UCeh1dIqBouGhlo1SwtnXpOw' targer='_blank'>PenseApp</a>
 * Usando MUI
 * Pokemom API 
